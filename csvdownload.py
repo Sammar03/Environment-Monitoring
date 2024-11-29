@@ -13,7 +13,7 @@ except FileNotFoundError:
 # Function to fetch live readings from ESP32
 def fetch_live_readings():
     try:
-        response = requests.get('http://192.168.0.200')  # Update with your ESP32's IP
+        response = requests.get('https://glad-scorpion-naturally.ngrok-free.app/')  # Update with your ESP32's IP
         if response.status_code == 200:
             data = response.json()
             # Format timestamp to Hours:Minutes:Seconds
@@ -72,7 +72,7 @@ def update_live_readings(data):
         <h3>Live Readings</h3>
         <p><strong>Temperature:</strong> {data['Temperature']:.2f} °C</p>
         <p><strong>Pressure:</strong> {data['Pressure']:.2f} hPa</p>
-        <p><strong>Gas:</strong> {data['Gas']:.2f} Ohms</p>
+        <p><strong>Gas:</strong> {data['Gas']:.2f} ppm</p>
         <p><strong>Humidity:</strong> {data['Humidity']:.2f} %</p>
         <p><strong>DewPoint:</strong> {data['DewPoint']:.2f} °C</p>
     </div>
